@@ -61,7 +61,7 @@ class BucketManager:
         self.dynamic_dir = os.path.join(self.base_dir, "dynamic")
         self.archive_dir = os.path.join(self.base_dir, "archive")
         self.feel_dir = os.path.join(self.base_dir, "feel")
-        self.fuzzy_threshold = config.get("matching", {}).get("fuzzy_threshold", 35)
+        self.fuzzy_threshold = config.get("matching", {}).get("fuzzy_threshold", 50)
         self.max_results = config.get("matching", {}).get("max_results", 5)
 
         # --- Wikilink config / 双链配置 ---
