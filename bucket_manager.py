@@ -61,7 +61,7 @@ class BucketManager:
         self.dynamic_dir = os.path.join(self.base_dir, "dynamic")
         self.archive_dir = os.path.join(self.base_dir, "archive")
         self.feel_dir = os.path.join(self.base_dir, "feel")
-        self.fuzzy_threshold = config.get("matching", {}).get("fuzzy_threshold", 50)
+        self.fuzzy_threshold = config.get("matching", {}).get("fuzzy_threshold", 35)
         self.max_results = config.get("matching", {}).get("max_results", 5)
 
         # --- Wikilink config / 双链配置 ---
@@ -88,7 +88,7 @@ class BucketManager:
         scoring = config.get("scoring_weights", {})
         self.w_topic = scoring.get("topic_relevance", 4.0)
         self.w_emotion = scoring.get("emotion_resonance", 2.0)
-        self.w_time = scoring.get("time_proximity", 2.5)
+        self.w_time = scoring.get("time_proximity", 1.0)
         self.w_importance = scoring.get("importance", 1.0)
         self.content_weight = scoring.get("content_weight", 3.0)  # Added to allow better content-based matching during merge
 
@@ -596,7 +596,7 @@ class BucketManager:
             days = max(0.0, (datetime.now() - last_active).total_seconds() / 86400)
         except (ValueError, TypeError):
             days = 30
-        return math.exp(-0.1 * days)
+        return math.exp(-0.02 * days)
 
     # ---------------------------------------------------------
     # List all buckets
