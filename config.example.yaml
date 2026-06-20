@@ -72,12 +72,12 @@ embedding:
 scoring_weights:
   topic_relevance: 4.0
   emotion_resonance: 2.0
-  time_proximity: 1.5
+  time_proximity: 1.0
   importance: 1.0
 
 # --- Fuzzy matching / 模糊匹配参数 ---
 matching:
-  fuzzy_threshold: 50             # Minimum match score (0-100) / 最低匹配分数
+  fuzzy_threshold: 35             # Minimum match score (0-100) / 最低匹配分数
   max_results: 5                  # Max results per search / 单次搜索最多返回条数
 
 # --- Obsidian wikilinks / Obsidian 双链自动注入 ---
